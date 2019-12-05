@@ -6,7 +6,7 @@
 /*   By: jkoopman <jkoopman@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/12 10:30:06 by jkoopman       #+#    #+#                */
-/*   Updated: 2019/12/03 15:31:53 by jkoopman      ########   odam.nl         */
+/*   Updated: 2019/12/05 14:58:06 by jkoopman      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ int			main(void)
 	while ((res = get_next_line(fd, &line)) > 0)
 	{
 		printf("LINE %d, OUT %d: |%s|\n", cnt++, res, line);
+		if (line)
+			free(line);
 	}
 	printf("LINE %d, OUT %d: |%s|\n", cnt++, res, line);
+	if (line)
+		free(line);
 	printf("==== ENDED ====\n");
 	return (0);
 }
